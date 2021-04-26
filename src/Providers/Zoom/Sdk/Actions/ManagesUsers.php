@@ -1,11 +1,11 @@
 <?php
 
-namespace Nncodes\Meeting\Providers\Zoom\Sdk\Actions;
+namespace SimpleEducation\Meeting\Providers\Zoom\Sdk\Actions;
 
-use Nncodes\Meeting\Providers\Zoom\Sdk\Resources\CloudRecording;
-use Nncodes\Meeting\Providers\Zoom\Sdk\Resources\Meeting;
-use Nncodes\Meeting\Providers\Zoom\Sdk\Resources\User;
-use Nncodes\Meeting\Providers\Zoom\Sdk\Support\Repository;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources\CloudRecording;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources\Meeting;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources\User;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Support\Repository;
 
 trait ManagesUsers
 {
@@ -24,7 +24,7 @@ trait ManagesUsers
      * Create a new user
      *
      * @param array $data
-     * @return \Nncodes\Meeting\Providers\Zoom\Sdk\Resources\User
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources\User
      */
     public function createUser(array $data): User
     {
@@ -36,7 +36,7 @@ trait ManagesUsers
      *
      * @param string $userId
      * @param array $data
-     * @return \Nncodes\Meeting\Providers\Zoom\Sdk\Resources\Meeting
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources\Meeting
      */
     public function createUserMeeting(string $userId, array $data): Meeting
     {
@@ -109,7 +109,7 @@ trait ManagesUsers
      *
      * @param string $userId
      * @param array $query
-     * @return \Nncodes\Meeting\Providers\Zoom\Sdk\Resources\User
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources\User
      */
     public function user(string $userId, array $query = []): User
     {
@@ -121,7 +121,7 @@ trait ManagesUsers
      *
      * @param array $query
      * @param string $userId User Id.
-     * @return \Nncodes\Meeting\Providers\Zoom\Sdk\Support\Repository
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Sdk\Support\Repository
      */
     public function userMeetings(string $userId, array $query = []): Repository
     {
@@ -150,7 +150,7 @@ trait ManagesUsers
      *
      * @param string $userId
      * @param array $query
-     * @return \Nncodes\Meeting\Providers\Zoom\Sdk\Support\Repository
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Sdk\Support\Repository
      */
     public function userRecordings(string $userId, array $query = []): Repository
     {
@@ -167,7 +167,7 @@ trait ManagesUsers
      * Get the collection of users.
      *
      * @param array $query
-     * @return \Nncodes\Meeting\Providers\Zoom\Sdk\Support\Repository
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Sdk\Support\Repository
      */
     public function users(array $query = []): Repository
     {

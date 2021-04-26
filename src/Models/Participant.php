@@ -1,11 +1,11 @@
 <?php
 
-namespace Nncodes\Meeting\Models;
+namespace SimpleEducation\Meeting\Models;
 
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\MorphPivot;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
-use Nncodes\MetaAttributes\Concerns\HasMetaAttributes;
+use SimpleEducation\MetaAttributes\Concerns\HasMetaAttributes;
 
 class Participant extends MorphPivot
 {

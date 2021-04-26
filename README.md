@@ -30,8 +30,8 @@
 This package can handle online meetings with Eloquent models. It provides a simple, fluent API to work with and by default uses Zoom as provider.
 
 ```php
-use Nncodes\Meeting\Models\Meeting;
-use Nncodes\Meeting\Models\MeetingRoom;
+use SimpleEducation\Meeting\Models\Meeting;
+use SimpleEducation\Meeting\Models\MeetingRoom;
 use App\Models\Event;
 use App\Models\Teacher;
 
@@ -70,8 +70,8 @@ php artisan meeting:install --config
 Or you can publish by the traditional way:
 
 ```bash
-php artisan vendor:publish --provider="Nncodes\Meeting\MeetingServiceProvider" --tag="migrations"
-php artisan vendor:publish --provider="Nncodes\MetaAttributes\MetaAttributesServiceProvider" --tag="migrations"
+php artisan vendor:publish --provider="SimpleEducation\Meeting\MeetingServiceProvider" --tag="migrations"
+php artisan vendor:publish --provider="SimpleEducation\MetaAttributes\MetaAttributesServiceProvider" --tag="migrations"
 ```
 
 After the migration has been published you can create the tables by running the migrations:
@@ -82,7 +82,7 @@ php artisan migrate
 
 You can publish the config file with:
 ```bash
-php artisan vendor:publish --provider="Nncodes\Meeting\MeetingServiceProvider" --tag="config"
+php artisan vendor:publish --provider="SimpleEducation\Meeting\MeetingServiceProvider" --tag="config"
 ```
 
 This is the contents of the published config file:
@@ -109,7 +109,7 @@ This is the contents of the published config file:
          /**
          * Provider class
          **/
-        'type' => \Nncodes\Meeting\Providers\Zoom\ZoomProvider::class,
+        'type' => \SimpleEducation\Meeting\Providers\Zoom\ZoomProvider::class,
 
         /**
          * JWT Zoom Token 
@@ -174,8 +174,8 @@ Responsible for scheduling the meeting, the model must implement the following i
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Nncodes\Meeting\Concerns\SchedulesMeetings;
-use Nncodes\Meeting\Contracts\Scheduler;
+use SimpleEducation\Meeting\Concerns\SchedulesMeetings;
+use SimpleEducation\Meeting\Contracts\Scheduler;
 
 class Event extends Model implements Scheduler
 {
@@ -191,8 +191,8 @@ Responsible for present the meeting, the model must implement the following inte
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Nncodes\Meeting\Concerns\PresentsMeetings;
-use Nncodes\Meeting\Contracts\Presenter;
+use SimpleEducation\Meeting\Concerns\PresentsMeetings;
+use SimpleEducation\Meeting\Contracts\Presenter;
 
 class Teacher extends User implements Presenter
 {
@@ -208,8 +208,8 @@ Responsible for hosting the meeting, the model must implement the following inte
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Nncodes\Meeting\Concerns\HostsMeetings;
-use Nncodes\Meeting\Contracts\Host;
+use SimpleEducation\Meeting\Concerns\HostsMeetings;
+use SimpleEducation\Meeting\Contracts\Host;
 
 class Room extends Model implements Host
 {
@@ -225,8 +225,8 @@ Allowed to join a meeting, the model must implement the following interface, tra
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Nncodes\Meeting\Concerns\JoinsMeetings;
-use Nncodes\Meeting\Contracts\Participant;
+use SimpleEducation\Meeting\Concerns\JoinsMeetings;
+use SimpleEducation\Meeting\Contracts\Participant;
 
 class Student extends User implements Participant
 {
@@ -269,7 +269,7 @@ class Student extends User implements Participant
 To schedule a meeting you need to use the methods below to properly fill the meeting data:
 
 ```php
-use Nncodes\Meeting\Models\Meeting;
+use SimpleEducation\Meeting\Models\Meeting;
 use App\Models\Event;
 use App\Models\Teacher;
 use App\Models\Room;
@@ -291,7 +291,7 @@ $meeting = Meeting::schedule()
 Or you can also schedule by the `scheduler` model:
 
 ```php
-use Nncodes\Meeting\Models\Meeting;
+use SimpleEducation\Meeting\Models\Meeting;
 use App\Models\Event;
 use App\Models\Teacher;
 use App\Models\Room;
@@ -308,7 +308,7 @@ $event->scheduleMeeting()
 Of course if needed, you can update the meeting: 
 
 ```php
-use Nncodes\Meeting\Models\Meeting;
+use SimpleEducation\Meeting\Models\Meeting;
 use App\Models\Event;
 use App\Models\Teacher;
 use App\Models\Room;
@@ -327,7 +327,7 @@ $meeting->updateTopic('English class: Introducing Yourself')
 Then you can add a participant:
 
 ```php
-use Nncodes\Meeting\Models\Meeting;
+use SimpleEducation\Meeting\Models\Meeting;
 use App\Models\Student;
 
 $meeting = Meeting::find(1);
@@ -343,7 +343,7 @@ $student->bookMeeting($meeting);
 To provide the access to the presenter use:
 
 ```php
-use Nncodes\Meeting\Models\Meeting;
+use SimpleEducation\Meeting\Models\Meeting;
 
 Meeting::find(1)->getPresenterAccess();
 ```
@@ -351,7 +351,7 @@ Meeting::find(1)->getPresenterAccess();
 And for the participant use:
 
 ```php
-use Nncodes\Meeting\Models\Meeting;
+use SimpleEducation\Meeting\Models\Meeting;
 use App\Models\Student;
 
 $student = Student::find(1);
@@ -365,7 +365,7 @@ More: [handling a scheduled meeting](#handling-a-scheduled-meeting).
 
 **You can just call from the meeting model:**
 
-Scoping meetings by `Nncodes\Meeting\Models\Meeting`.
+Scoping meetings by `SimpleEducation\Meeting\Models\Meeting`.
 ```php
 $query = Meeting::query();
 ```
@@ -500,7 +500,7 @@ When using zoom provider, you can set `share_rooms` to `true`, then you don't ne
 In this case you can schedule using: 
 
 ```php
-use Nncodes\Meeting\Models\Meeting;
+use SimpleEducation\Meeting\Models\Meeting;
 use App\Models\Event;
 use App\Models\Teacher;
 
@@ -513,10 +513,10 @@ $meeting = Meeting::schedule()
   	->save();
 ```
 
-If no rooms is available the expcetion `\Nncodes\Meeting\Exceptions\NoZoomRoomAvailable` is thrown.
+If no rooms is available the expcetion `\SimpleEducation\Meeting\Exceptions\NoZoomRoomAvailable` is thrown.
 
 ```php 
-use Nncodes\Meeting\Models\Meeting;
+use SimpleEducation\Meeting\Models\Meeting;
 ```
 
 Starting a meeting.
@@ -538,7 +538,7 @@ Meeting::find(1)->cancel();
 
 #### Add a participant
 
-Adding a participant by `Nncodes\Meeting\Models\Meeting`
+Adding a participant by `SimpleEducation\Meeting\Models\Meeting`
 ```php
 $student = Student::find(1);
 Meeting::find(1)->addParticipant($student);
@@ -552,7 +552,7 @@ Student::find(1)->bookMeeting($meeting);
 
 #### Cancel a participation
 
-Canceling a participation by `Nncodes\Meeting\Models\Meeting`
+Canceling a participation by `SimpleEducation\Meeting\Models\Meeting`
 ```php
 $student = Student::find(1);
 Meeting::find(1)->cancelParticipation($student);
@@ -566,7 +566,7 @@ Student::find(1)->cancelMeetingParticipation($meeting);
 
 #### Join meeting
 
-Joining by `Nncodes\Meeting\Models\Meeting`
+Joining by `SimpleEducation\Meeting\Models\Meeting`
 ```php
 $student = Student::find(1);
 Meeting::find(1)->joinParticipant($student);
@@ -580,7 +580,7 @@ Student::find(1)->joinMeeting($meeting);
 
 ##### Leave meeting
 
-Leaving by `Nncodes\Meeting\Models\Meeting`
+Leaving by `SimpleEducation\Meeting\Models\Meeting`
 ```php
 $student = Student::find(1);
 Meeting::find(1)->leaveParticipant($student);
@@ -634,7 +634,7 @@ $participant = Meeting::find(1)->getNextParticipant();
 Given the code: 
 
 ```php
-use Nncodes\Meeting\Models\MeetingRoom;
+use SimpleEducation\Meeting\Models\MeetingRoom;
 
 $startTime = Carbon::now()->addMinutes(30);
 $duration = 40;
@@ -653,7 +653,7 @@ MeetingRoom::busyBetween($startTime, $endTime);
 
 Scoping busy and available hosts except for a meeting
 ```php 
-use Nncodes\Meeting\Models\Meeting;
+use SimpleEducation\Meeting\Models\Meeting;
 
 $except = Meeting::find(1);
 
@@ -666,7 +666,7 @@ Then you can call any eloquent retriever method, e.g. `count`, `first`, `get`, `
 You can also check if a room instance is busy or available:
 
 ```php 
-use Nncodes\Meeting\Models\MeetingRoom;
+use SimpleEducation\Meeting\Models\MeetingRoom;
 
 MeetingRoom::find(1)->isAvailableBetween($startTime, $endTime);
 MeetingRoom::find(1)->isBusyBetween($startTime, $endTime);
@@ -675,8 +675,8 @@ MeetingRoom::find(1)->isBusyBetween($startTime, $endTime);
 As the scope methods, you can also specify meeting to exclude from the query:
 
 ```php 
-use Nncodes\Meeting\Models\MeetingRoom;
-use Nncodes\Meeting\Models\Meeting;
+use SimpleEducation\Meeting\Models\MeetingRoom;
+use SimpleEducation\Meeting\Models\Meeting;
 
 $except = Meeting::find(1);
 

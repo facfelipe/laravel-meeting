@@ -1,6 +1,6 @@
 <?php
 
-namespace Nncodes\Meeting\Providers\Zoom\Sdk\Support;
+namespace SimpleEducation\Meeting\Providers\Zoom\Sdk\Support;
 
 use Exception;
 use Illuminate\Support\Collection;
@@ -84,7 +84,7 @@ class Repository
     protected function build(array $items, array $attributes = [], ?string $key): void
     {
         $this->key = $key ? $key : 'collection';
-        
+
         $this->createCollection($items);
 
         foreach ($attributes as $key => $value) {
@@ -92,7 +92,7 @@ class Repository
             $this->{$key} = $value;
         }
     }
-    
+
     /**
      * Undocumented function
      *
@@ -155,15 +155,15 @@ class Repository
             'next_page_token' => $this->nextPageToken,
             'page_size' => $this->pageSize,
         ];
-        
+
         $repository = $paginator($query, $this->paginator);
 
         $this->pageNumber++;
-        
+
         $this->build($repository->collection()->all(), [
             'next_page_token' => $repository->nextPageToken,
         ], $this->key);
-        
+
         return $this;
     }
 
@@ -179,7 +179,7 @@ class Repository
         if ($this->reflection->hasMethod($name) === false) {
             throw new Exception(sprintf("Call undefined function '%s' in '%s'", $name, $this->reflection->getName()));
         }
-              
+
         return $arguments ? call_user_func_array([$this->{$this->key}, $name], $arguments) : $this->{$this->key}->$name();
     }
 }

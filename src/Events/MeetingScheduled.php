@@ -1,9 +1,9 @@
 <?php
 
-namespace Nncodes\Meeting\Events;
+namespace SimpleEducation\Meeting\Events;
 
 use Illuminate\Queue\SerializesModels;
-use Nncodes\Meeting\Models\Meeting;
+use SimpleEducation\Meeting\Models\Meeting;
 
 class MeetingScheduled
 {
@@ -14,7 +14,7 @@ class MeetingScheduled
     /**
      * Create a new event instance.
      *
-     * @param \Nncodes\Meeting\Models\Meeting $meeting
+     * @param \SimpleEducation\Meeting\Models\Meeting $meeting
      */
     public function __construct(Meeting $meeting)
     {

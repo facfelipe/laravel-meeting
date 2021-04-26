@@ -1,15 +1,15 @@
 <?php
 
-namespace Nncodes\Meeting;
+namespace SimpleEducation\Meeting;
 
 use Carbon\Carbon;
 use Illuminate\Contracts\Support\Arrayable;
 use Illuminate\Support\Collection;
-use Nncodes\Meeting\Contracts\Host;
-use Nncodes\Meeting\Contracts\Presenter;
-use Nncodes\Meeting\Contracts\Provider;
-use Nncodes\Meeting\Contracts\Scheduler;
-use Nncodes\Meeting\Exceptions\BusyForTheMeeting;
+use SimpleEducation\Meeting\Contracts\Host;
+use SimpleEducation\Meeting\Contracts\Presenter;
+use SimpleEducation\Meeting\Contracts\Provider;
+use SimpleEducation\Meeting\Contracts\Scheduler;
+use SimpleEducation\Meeting\Exceptions\BusyForTheMeeting;
 
 class MeetingAdder implements Arrayable
 {
@@ -30,22 +30,22 @@ class MeetingAdder implements Arrayable
     public string $topic;
 
     /**
-     * @var \Nncodes\Meeting\Contracts\Scheduler
+     * @var \SimpleEducation\Meeting\Contracts\Scheduler
      */
     public Scheduler $scheduler;
 
     /**
-     * @var \Nncodes\Meeting\Contracts\Host
+     * @var \SimpleEducation\Meeting\Contracts\Host
      */
     public Host $host;
 
     /**
-     * @var \Nncodes\Meeting\Contracts\Presenter
+     * @var \SimpleEducation\Meeting\Contracts\Presenter
      */
     public Presenter $presenter;
 
     /**
-     * @var \Nncodes\Meeting\Contracts\Provider
+     * @var \SimpleEducation\Meeting\Contracts\Provider
      */
     public Provider $provider;
 
@@ -103,7 +103,7 @@ class MeetingAdder implements Arrayable
     /**
      * Undocumented function
      *
-     * @param \Nncodes\Meeting\Contracts\Scheduler $scheduler
+     * @param \SimpleEducation\Meeting\Contracts\Scheduler $scheduler
      * @return self
      */
     public function scheduledBy(Scheduler $scheduler): self
@@ -116,7 +116,7 @@ class MeetingAdder implements Arrayable
     /**
      * Undocumented function
      *
-     * @param \Nncodes\Meeting\Contracts\Host $host
+     * @param \SimpleEducation\Meeting\Contracts\Host $host
      * @return self
      */
     public function hostedBy(Host $host): self
@@ -129,7 +129,7 @@ class MeetingAdder implements Arrayable
     /**
      * Undocumented function
      *
-     * @param \Nncodes\Meeting\Contracts\Presenter $presenter
+     * @param \SimpleEducation\Meeting\Contracts\Presenter $presenter
      * @return self
      */
     public function presentedBy(Presenter $presenter): self
@@ -150,7 +150,7 @@ class MeetingAdder implements Arrayable
         $provider = $provider ? $provider : config('meeting.default');
 
         if (! config('meeting.providers.' . $provider)) {
-            throw \Nncodes\Meeting\Exceptions\InvalidProvider::create($provider);
+            throw \SimpleEducation\Meeting\Exceptions\InvalidProvider::create($provider);
         }
 
         $provider = resolve("laravel-meeting:{$provider}");
@@ -180,7 +180,7 @@ class MeetingAdder implements Arrayable
      * Undocumented function
      *
      * @param array $settings
-     * @throws  \Nncodes\Meeting\Exceptions\BusyForTheMeeting
+     * @throws  \SimpleEducation\Meeting\Exceptions\BusyForTheMeeting
      * @return void
      */
     protected function preventConcurrent(array $settings)

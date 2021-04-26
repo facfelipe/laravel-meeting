@@ -1,6 +1,6 @@
 <?php
 
-namespace Nncodes\Meeting\Tests;
+namespace SimpleEducation\Meeting\Tests;
 
 class ExampleTest extends TestCase
 {

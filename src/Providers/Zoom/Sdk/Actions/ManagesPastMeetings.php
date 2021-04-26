@@ -1,9 +1,9 @@
 <?php
 
-namespace Nncodes\Meeting\Providers\Zoom\Sdk\Actions;
+namespace SimpleEducation\Meeting\Providers\Zoom\Sdk\Actions;
 
-use Nncodes\Meeting\Providers\Zoom\Sdk\Resources\MeetingParticipant;
-use Nncodes\Meeting\Providers\Zoom\Sdk\Support\Repository;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources\MeetingParticipant;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Support\Repository;
 
 trait ManagesPastMeetings
 {
@@ -23,7 +23,7 @@ trait ManagesPastMeetings
      *
      * @param int $meetingId The meeting I
      * @param array $query
-     * @return \Nncodes\Meeting\Providers\Zoom\Sdk\Support\Repository
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Sdk\Support\Repository
      */
     public function pastMeetingParticipants(int $meetingId, array $query = []): Repository
     {

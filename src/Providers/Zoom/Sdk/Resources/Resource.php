@@ -1,9 +1,9 @@
 <?php
 
-namespace Nncodes\Meeting\Providers\Zoom\Sdk\Resources;
+namespace SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources;
 
-use Nncodes\Meeting\Providers\Zoom\Sdk\Support\Repository;
-use Nncodes\Meeting\Providers\Zoom\Sdk\Zoom;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Support\Repository;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Zoom;
 use ReflectionProperty;
 
 class Resource
@@ -25,7 +25,7 @@ class Resource
     /**
      * The Zoom SDK instance.
      *
-     * @var \Nncodes\Meeting\Providers\Zoom\Sdk\Zoom|null
+     * @var \SimpleEducation\Meeting\Providers\Zoom\Sdk\Zoom|null
      */
     protected Zoom $zoom;
 
@@ -38,14 +38,14 @@ class Resource
      * Create a new resource instance.
      *
      * @param array $attributes
-     * @param  \Nncodes\Meeting\Providers\Zoom\Sdk\Zoom  $zoom
+     * @param  \SimpleEducation\Meeting\Providers\Zoom\Sdk\Zoom  $zoom
      * @return void
      */
     public function __construct(array $attributes, Zoom $zoom)
     {
         $this->attributes = $attributes;
         $this->zoom = $zoom;
-        
+
         $this->fill();
     }
 
@@ -58,7 +58,7 @@ class Resource
     {
         foreach ($this->attributes as $key => $value) {
             $camelKey = \Illuminate\Support\Str::camel($key);
-           
+
             if (is_array($value) && property_exists($this, $camelKey)) {
                 $property = new ReflectionProperty($this, $camelKey);
 
@@ -74,14 +74,14 @@ class Resource
             $this->{$camelKey} = $value;
         }
     }
-  
+
     /**
      * Transform the items of the collection to the given class.
      *
      * @param array $collection
      * @param string $class
      * @param array $extraData
-     * @return \Nncodes\Meeting\Providers\Zoom\Sdk\Support\Repository
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Sdk\Support\Repository
      */
     protected function transformCollection(array $collection, string $class, array $extraData = []): Repository
     {

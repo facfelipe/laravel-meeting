@@ -1,11 +1,11 @@
 <?php
 
-namespace Nncodes\Meeting\Concerns;
+namespace SimpleEducation\Meeting\Concerns;
 
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use Nncodes\Meeting\MeetingAdder;
-use Nncodes\Meeting\Models\Meeting;
-use Nncodes\Meeting\Models\Traits\VerifiesAvailability;
+use SimpleEducation\Meeting\MeetingAdder;
+use SimpleEducation\Meeting\Models\Meeting;
+use SimpleEducation\Meeting\Models\Traits\VerifiesAvailability;
 
 /**
  * Provides default implementation of Scheduler contract.
@@ -13,7 +13,7 @@ use Nncodes\Meeting\Models\Traits\VerifiesAvailability;
 trait SchedulesMeetings
 {
     use VerifiesAvailability;
-    
+
     /**
      * Get the MorphMany Relation with the Meeting Model
      *
@@ -28,7 +28,7 @@ trait SchedulesMeetings
      * Undocumented function
      *
      * @param string|null $provider
-     * @return \Nncodes\Meeting\MeetingAdder
+     * @return \SimpleEducation\Meeting\MeetingAdder
      */
     public function scheduleMeeting(?string $provider = null): MeetingAdder
     {

@@ -1,11 +1,11 @@
 <?php
 
-namespace Nncodes\Meeting\Concerns;
+namespace SimpleEducation\Meeting\Concerns;
 
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
-use Nncodes\Meeting\Models\Meeting;
-use Nncodes\Meeting\Models\Participant;
-use Nncodes\Meeting\Models\Traits\VerifiesAvailability;
+use SimpleEducation\Meeting\Models\Meeting;
+use SimpleEducation\Meeting\Models\Participant;
+use SimpleEducation\Meeting\Models\Traits\VerifiesAvailability;
 
 /**
  * Provides default implementation of Participant contract.
@@ -13,7 +13,7 @@ use Nncodes\Meeting\Models\Traits\VerifiesAvailability;
 trait JoinsMeetings
 {
     use VerifiesAvailability;
-    
+
     /**
      * Get the MorphToMany Relation with the Meeting Model
      *
@@ -30,8 +30,8 @@ trait JoinsMeetings
     /**
      * Undocumented function
      *
-     * @param \Nncodes\Meeting\Models\Meeting $meeting
-     * @return \Nncodes\Meeting\Models\Participant
+     * @param \SimpleEducation\Meeting\Models\Meeting $meeting
+     * @return \SimpleEducation\Meeting\Models\Participant
      */
     public function bookMeeting(Meeting $meeting): Participant
     {
@@ -41,7 +41,7 @@ trait JoinsMeetings
     /**
      * Undocumented function
      *
-     * @param \Nncodes\Meeting\Models\Meeting $meeting
+     * @param \SimpleEducation\Meeting\Models\Meeting $meeting
      * @return bool
      */
     public function cancelMeetingParticipation(Meeting $meeting): bool
@@ -52,8 +52,8 @@ trait JoinsMeetings
     /**
      * Undocumented function
      *
-     * @param \Nncodes\Meeting\Models\Meeting $meeting
-     * @return \Nncodes\Meeting\Models\Participant
+     * @param \SimpleEducation\Meeting\Models\Meeting $meeting
+     * @return \SimpleEducation\Meeting\Models\Participant
      */
     public function joinMeeting(Meeting $meeting): Participant
     {
@@ -63,8 +63,8 @@ trait JoinsMeetings
     /**
     * Undocumented function
     *
-    * @param \Nncodes\Meeting\Models\Meeting $meeting
-    * @return \Nncodes\Meeting\Models\Participant
+    * @param \SimpleEducation\Meeting\Models\Meeting $meeting
+    * @return \SimpleEducation\Meeting\Models\Participant
     */
     public function leaveMeeting(Meeting $meeting): Participant
     {

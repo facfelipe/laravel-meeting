@@ -1,10 +1,10 @@
 <?php
 
-namespace Nncodes\Meeting\Models;
+namespace SimpleEducation\Meeting\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Nncodes\MetaAttributes\Concerns\HasMetaAttributes;
+use SimpleEducation\MetaAttributes\Concerns\HasMetaAttributes;
 
 class Meeting extends Model
 {
@@ -15,7 +15,7 @@ class Meeting extends Model
     use Traits\ManipulatesParticipants;
     use Traits\ProvidesMeetingAccessors;
     use Traits\ManipulatesMeeting;
-    
+
     /**
      * The attributes that are mass assignable.
      *

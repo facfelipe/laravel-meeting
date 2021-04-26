@@ -1,14 +1,14 @@
 <?php
 
-namespace Nncodes\Meeting\Providers\Zoom\Sdk\Support;
+namespace SimpleEducation\Meeting\Providers\Zoom\Sdk\Support;
 
 use Exception;
-use Nncodes\Meeting\Providers\Zoom\Sdk\Exceptions\ConflictException;
-use Nncodes\Meeting\Providers\Zoom\Sdk\Exceptions\FailedActionException;
-use Nncodes\Meeting\Providers\Zoom\Sdk\Exceptions\NotFoundException;
-use Nncodes\Meeting\Providers\Zoom\Sdk\Exceptions\TooManyRequestsException;
-use Nncodes\Meeting\Providers\Zoom\Sdk\Exceptions\UnauthorizedException;
-use Nncodes\Meeting\Providers\Zoom\Sdk\Exceptions\ValidationException;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Exceptions\ConflictException;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Exceptions\FailedActionException;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Exceptions\NotFoundException;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Exceptions\TooManyRequestsException;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Exceptions\UnauthorizedException;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Exceptions\ValidationException;
 use Psr\Http\Message\ResponseInterface;
 use Throwable;
 
@@ -118,12 +118,12 @@ trait MakesHttpRequests
      * @return void
      *
      * @throws \Exception
-     * @throws \Nncodes\Meeting\Providers\Zoom\Sdk\Exceptions\ConflictException
-     * @throws \Nncodes\Meeting\Providers\Zoom\Sdk\Exceptions\FailedActionException
-     * @throws \Nncodes\Meeting\Providers\Zoom\Sdk\Exceptions\NotFoundException
-     * @throws \Nncodes\Meeting\Providers\Zoom\Sdk\Exceptions\TooManyRequestsException
-     * @throws \Nncodes\Meeting\Providers\Zoom\Sdk\Exceptions\UnauthorizedException
-     * @throws \Nncodes\Meeting\Providers\Zoom\Sdk\Exceptions\ValidationException
+     * @throws \SimpleEducation\Meeting\Providers\Zoom\Sdk\Exceptions\ConflictException
+     * @throws \SimpleEducation\Meeting\Providers\Zoom\Sdk\Exceptions\FailedActionException
+     * @throws \SimpleEducation\Meeting\Providers\Zoom\Sdk\Exceptions\NotFoundException
+     * @throws \SimpleEducation\Meeting\Providers\Zoom\Sdk\Exceptions\TooManyRequestsException
+     * @throws \SimpleEducation\Meeting\Providers\Zoom\Sdk\Exceptions\UnauthorizedException
+     * @throws \SimpleEducation\Meeting\Providers\Zoom\Sdk\Exceptions\ValidationException
      * @return Throwable
      */
     protected function handleRequestError(ResponseInterface $response): Throwable
@@ -142,7 +142,7 @@ trait MakesHttpRequests
         if (array_key_exists($statusCode, $exceptionsHandler)) {
             return new $exceptionsHandler[$statusCode]($body, $statusCode);
         }
-        
+
         return new Exception($body->message, $statusCode);
     }
 }

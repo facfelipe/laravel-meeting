@@ -1,13 +1,13 @@
 <?php
 
-namespace Nncodes\Meeting\Providers\Zoom\Commands;
+namespace SimpleEducation\Meeting\Providers\Zoom\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Str;
-use Nncodes\Meeting\Models\MeetingRoom;
-use Nncodes\Meeting\Providers\Zoom\Sdk\Zoom;
+use SimpleEducation\Meeting\Models\MeetingRoom;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Zoom;
 
 class SyncUsersCommand extends Command
 {
@@ -36,7 +36,7 @@ class SyncUsersCommand extends Command
             if (! $zoomGroupId = $this->option('group')) {
                 $zoomGroupId = config('meeting.providers.zoom.group_id');
             }
-            
+
             $users = $api->groupMembers($zoomGroupId);
 
             $deletableUsers = MeetingRoom::whereNotIn('uuid', $users->pluck('id')->values())->get();
@@ -64,7 +64,7 @@ class SyncUsersCommand extends Command
                 $room->status = $room->wasRecentlyCreated ? 'created' : 'updated';
                 $updates->push($room);
             }
-            
+
             $this->log($updates, 'created');
             $this->log($updates, 'updated');
             $this->log($updates, 'deleted');
@@ -98,7 +98,7 @@ class SyncUsersCommand extends Command
                 Str::plural('user', $items->count()),
                 $type
             ));
-            
+
             $this->table(
                 $headers,
                 $items->map(fn ($user) => $user->only($tableKeys))->toArray()

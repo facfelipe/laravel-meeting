@@ -1,53 +1,53 @@
 <?php
 
 return [
-    
+
     /**
     * Default Meeting Provider
-    * 
-    * Here you can specify which meeting provider the package should use by 
+    *
+    * Here you can specify which meeting provider the package should use by
     * default. Of course you may use many providers at once using the package.
     */
    'default' => env('MEETING_PROVIDER', 'zoom'),
-   
+
    /**
     * Meeting Providers
-    * 
+    *
     * Here are each of the meetings provider setup for the package.
     */
-   
+
    'providers' => [
-   
+
        'zoom' => [
-   
+
             /**
             * Provider class
             **/
-           'type' => \Nncodes\Meeting\Providers\Zoom\ZoomProvider::class,
-   
+           'type' => \SimpleEducation\Meeting\Providers\Zoom\ZoomProvider::class,
+
            /**
-            * JWT Zoom Token 
+            * JWT Zoom Token
             * @see https://marketplace.zoom.us/docs/guides/auth/jwt
             **/
            'jwt_token' => env('ZOOM_TOKEN'),
-   
+
            /**
             * Zoom Group ID
-            * 
+            *
             * @see https://marketplace.zoom.us/docs/api-reference/zoom-api/groups/group
             **/
            'group_id' => env('ZOOM_GROUP'),
-   
+
             /**
             * Share Rooms
-            * 
+            *
             * Delegate to the package the responsability of handling the allocations of rooms.
             **/
            'share_rooms' => true,
-   
+
             /**
             * Meeting resource seetings
-            * 
+            *
             * @see https://marketplace.zoom.us/docs/api-reference/zoom-api/meetings/meeting
             **/
            'meeting_settings' => [
@@ -66,7 +66,7 @@ return [
            ]
        ]
    ],
-   
+
    /**
     * Allow concurrent Meetings
     */

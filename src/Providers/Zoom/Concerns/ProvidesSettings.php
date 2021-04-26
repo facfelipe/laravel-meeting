@@ -1,6 +1,6 @@
 <?php
 
-namespace Nncodes\Meeting\Providers\Zoom\Concerns;
+namespace SimpleEducation\Meeting\Providers\Zoom\Concerns;
 
 trait ProvidesSettings
 {

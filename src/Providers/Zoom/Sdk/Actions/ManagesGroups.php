@@ -1,10 +1,10 @@
 <?php
 
-namespace Nncodes\Meeting\Providers\Zoom\Sdk\Actions;
+namespace SimpleEducation\Meeting\Providers\Zoom\Sdk\Actions;
 
-use Nncodes\Meeting\Providers\Zoom\Sdk\Resources\Group;
-use Nncodes\Meeting\Providers\Zoom\Sdk\Resources\User;
-use Nncodes\Meeting\Providers\Zoom\Sdk\Support\Repository;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources\Group;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources\User;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Support\Repository;
 
 trait ManagesGroups
 {
@@ -24,7 +24,7 @@ trait ManagesGroups
      * Create a new group
      *
      * @param array $data
-     * @return \Nncodes\Meeting\Providers\Zoom\Sdk\Resources\Group
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources\Group
      */
     public function createGroup(array $data): Group
     {
@@ -58,7 +58,7 @@ trait ManagesGroups
      * Get a instance of group
      *
      * @param string $groupId
-     * @return \Nncodes\Meeting\Providers\Zoom\Sdk\Resources\Group
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources\Group
      */
     public function group(string $groupId): Group
     {
@@ -70,7 +70,7 @@ trait ManagesGroups
      *
      * @param string $groupId
      * @param array $query
-     * @return \Nncodes\Meeting\Providers\Zoom\Sdk\Support\Repository
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Sdk\Support\Repository
      */
     public function groupMembers(string $groupId, array $query = []): Repository
     {
@@ -86,7 +86,7 @@ trait ManagesGroups
     /**
      * Get the collection of groups.
      *
-     * @return \Nncodes\Meeting\Providers\Zoom\Sdk\Support\Repository
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Sdk\Support\Repository
      */
     public function groups(): Repository
     {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Nncodes\Meeting\Database\Factories;
+namespace SimpleEducation\Meeting\Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 

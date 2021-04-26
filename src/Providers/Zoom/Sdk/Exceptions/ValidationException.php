@@ -1,6 +1,6 @@
 <?php
 
-namespace Nncodes\Meeting\Providers\Zoom\Sdk\Exceptions;
+namespace SimpleEducation\Meeting\Providers\Zoom\Sdk\Exceptions;
 
 use Exception;
 

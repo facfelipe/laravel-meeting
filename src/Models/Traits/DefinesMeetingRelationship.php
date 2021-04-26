@@ -1,11 +1,11 @@
 <?php
 
-namespace Nncodes\Meeting\Models\Traits;
+namespace SimpleEducation\Meeting\Models\Traits;
 
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
-use Nncodes\Meeting\Models\Participant;
+use SimpleEducation\Meeting\Models\Participant;
 
 /**
  * Provides relationship methods for meeting model

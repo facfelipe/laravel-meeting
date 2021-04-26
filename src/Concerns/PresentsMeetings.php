@@ -1,10 +1,10 @@
 <?php
 
-namespace Nncodes\Meeting\Concerns;
+namespace SimpleEducation\Meeting\Concerns;
 
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use Nncodes\Meeting\Models\Meeting;
-use Nncodes\Meeting\Models\Traits\VerifiesAvailability;
+use SimpleEducation\Meeting\Models\Meeting;
+use SimpleEducation\Meeting\Models\Traits\VerifiesAvailability;
 
 /**
  * Provides default implementation of Presenter contract.
@@ -12,7 +12,7 @@ use Nncodes\Meeting\Models\Traits\VerifiesAvailability;
 trait PresentsMeetings
 {
     use VerifiesAvailability;
-    
+
     /**
      * Get the MorphMany Relation with the Meeting Model
      *

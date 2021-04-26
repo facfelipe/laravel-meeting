@@ -1,23 +1,23 @@
 <?php
 
-namespace Nncodes\Meeting\Exceptions;
+namespace SimpleEducation\Meeting\Exceptions;
 
-use Nncodes\Meeting\Contracts\Participant;
-use Nncodes\Meeting\MeetingAdder;
-use Nncodes\Meeting\Models\Meeting;
+use SimpleEducation\Meeting\Contracts\Participant;
+use SimpleEducation\Meeting\MeetingAdder;
+use SimpleEducation\Meeting\Models\Meeting;
 
 class BusyForTheMeeting extends \Exception
 {
 
     /**
-     * @var \Nncodes\Meeting\MeetingAdder
+     * @var \SimpleEducation\Meeting\MeetingAdder
      */
     protected MeetingAdder $meeting;
 
     /**
      * Undocumented function
      *
-     * @param \Nncodes\Meeting\MeetingAdder $meeting
+     * @param \SimpleEducation\Meeting\MeetingAdder $meeting
      * @param string $relation
      * @return self
      */
@@ -33,8 +33,8 @@ class BusyForTheMeeting extends \Exception
     /**
      * Undocumented function
      *
-     * @param \Nncodes\Meeting\Models\Meeting $meeting
-     * @param \Nncodes\Meeting\Contracts\Participant $participant
+     * @param \SimpleEducation\Meeting\Models\Meeting $meeting
+     * @param \SimpleEducation\Meeting\Contracts\Participant $participant
      * @return self
      */
     public static function createForParticipant(Meeting $meeting, Participant $participant): self
@@ -56,7 +56,7 @@ class BusyForTheMeeting extends \Exception
      * Create a new instance of NoZoomRoomAvailable exception
      *
      * @param string $message
-     * @param \Nncodes\Meeting\MeetingAdder $meeting
+     * @param \SimpleEducation\Meeting\MeetingAdder $meeting
      * @param string $relation
      */
     public function __construct(string $message, MeetingAdder $meeting, string $relation)
@@ -77,7 +77,7 @@ class BusyForTheMeeting extends \Exception
     /**
      * Get the meeting that regeneted the exception
      *
-     * @return \Nncodes\Meeting\MeetingAdder
+     * @return \SimpleEducation\Meeting\MeetingAdder
      */
     public function getMeeting(): MeetingAdder
     {

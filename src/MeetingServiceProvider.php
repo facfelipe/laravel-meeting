@@ -1,6 +1,6 @@
 <?php
 
-namespace Nncodes\Meeting;
+namespace SimpleEducation\Meeting;
 
 use Illuminate\Support\ServiceProvider;
 
