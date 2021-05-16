@@ -4,7 +4,7 @@ namespace SimpleEducation\Meeting\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use SimpleEducation\MetaAttributes\Concerns\HasMetaAttributes;
+use Nncodes\MetaAttributes\Concerns\HasMetaAttributes;
 
 class Meeting extends Model
 {

@@ -64,6 +64,19 @@ return [
                "registrants_email_notification" => false,
                "meeting_authentication" => false
            ]
+       ],
+       'google' => [
+           /**
+            * Provider class
+            **/
+           'type' => \SimpleEducation\Meeting\Providers\Google\GoogleProvider::class,
+
+           /**
+            * JWT Zoom Token
+            * @see https://marketplace.zoom.us/docs/guides/auth/jwt
+            **/
+           'jwt_token' => env('ZOOM_TOKEN'),
+
        ]
    ],
 

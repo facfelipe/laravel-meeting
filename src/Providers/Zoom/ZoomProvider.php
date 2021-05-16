@@ -5,8 +5,9 @@ namespace SimpleEducation\Meeting\Providers\Zoom;
 use SimpleEducation\Meeting\Contracts\Participant;
 use SimpleEducation\Meeting\Contracts\Provider;
 use SimpleEducation\Meeting\Models\Meeting;
+use SimpleEducation\Meeting\Providers\MeetProvider;
 
-class ZoomProvider implements Provider
+class ZoomProvider extends MeetProvider implements Provider
 {
     use Concerns\InteractsWithMeetings;
 

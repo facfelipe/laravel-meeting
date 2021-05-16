@@ -20,22 +20,20 @@ trait InteractsWithMeetings
     use ProvidesSettings;
 
     /**
-     * Undocumented function
      *
      * @param \SimpleEducation\Meeting\MeetingAdder $meeting
-     * @throws  \SimpleEducation\Meeting\Exceptions\NoZoomRoomAvailable
      * @return void
+     * @throws  \SimpleEducation\Meeting\Exceptions\NoZoomRoomAvailable
      */
     public function scheduling(MeetingAdder $meeting): void
     {
         if ($this->shareRooms()) {
             $endTime = (clone $meeting->startTime)->addMinutes($meeting->duration);
-            if (! $host = MeetingRoom::findAvailable($meeting->startTime, $endTime)) {
+            if (!$host = MeetingRoom::findAvailable($meeting->startTime, $endTime)) {
                 throw NoZoomRoomAvailable::create($meeting);
             }
             $meeting->hostedBy($host);
         }
-
         $zoomMeeting = $this->createZoomMeeting(
             $meeting->host->uuid,
             $meeting->topic,
@@ -49,7 +47,6 @@ trait InteractsWithMeetings
     }
 
     /**
-     * Undocumented function
      *
      * @param \SimpleEducation\Meeting\Models\Meeting $meeting
      * @return void
@@ -60,7 +57,6 @@ trait InteractsWithMeetings
     }
 
     /**
-     * Undocumented function
      *
      * @param \SimpleEducation\Meeting\Models\Meeting $meeting
      * @return void
@@ -71,7 +67,7 @@ trait InteractsWithMeetings
             if ($meeting->isDirty('start_time')) {
                 if ($this->shareRooms() && $meeting->host->isBusyBetween($meeting->start_time, $meeting->end_time, $meeting)) {
                     //Search for another host if the current is not available for the new start_time and duration
-                    if (! $host = MeetingRoom::findAvailable($meeting->start_time, $meeting->end_time)) {
+                    if (!$host = MeetingRoom::findAvailable($meeting->start_time, $meeting->end_time)) {
                         throw NoZoomRoomAvailable::createFromModel($meeting);
                     }
                     $meeting->updateHost($host);
@@ -114,58 +110,6 @@ trait InteractsWithMeetings
     }
 
     /**
-     * Undocumented function
-     *
-     * @param \SimpleEducation\Meeting\Models\Meeting $meeting
-     * @return void
-     */
-    public function updated(Meeting $meeting): void
-    {
-        event(new MeetingUpdated($meeting));
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @param \SimpleEducation\Meeting\Models\Meeting $meeting
-     * @return void
-     */
-    public function starting(Meeting $meeting): void
-    {
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @param \SimpleEducation\Meeting\Models\Meeting $meeting
-     * @return void
-     */
-    public function started(Meeting $meeting): void
-    {
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @param \SimpleEducation\Meeting\Models\Meeting $meeting
-     * @return void
-     */
-    public function ending(Meeting $meeting): void
-    {
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @param \SimpleEducation\Meeting\Models\Meeting $meeting
-     * @return void
-     */
-    public function ended(Meeting $meeting): void
-    {
-    }
-
-    /**
-     * Undocumented function
      *
      * @param \SimpleEducation\Meeting\Models\Meeting $meeting
      * @return void
@@ -176,18 +120,6 @@ trait InteractsWithMeetings
     }
 
     /**
-     * Undocumented function
-     *
-     * @param \SimpleEducation\Meeting\Models\Meeting $meeting
-     * @return void
-     */
-    public function canceled(Meeting $meeting): void
-    {
-        event(new MeetingCanceled($meeting));
-    }
-
-    /**
-     * Undocumented function
      *
      * @param \SimpleEducation\Meeting\Contracts\Participant $participant
      * @param \SimpleEducation\Meeting\Models\Meeting $meeting
@@ -206,7 +138,6 @@ trait InteractsWithMeetings
     }
 
     /**
-     * Undocumented function
      *
      * @param \SimpleEducation\Meeting\Models\Participant $participant
      * @return void
@@ -225,7 +156,6 @@ trait InteractsWithMeetings
     }
 
     /**
-     * Undocumented function
      *
      * @param \SimpleEducation\Meeting\Models\Participant $participant
      * @return void
@@ -245,54 +175,5 @@ trait InteractsWithMeetings
         $participant->clearMetas();
     }
 
-    /**
-     * Undocumented function
-     *
-     * @param \SimpleEducation\Meeting\Models\Participant $participant
-     * @return void
-     */
-    public function participationCanceled(ParticipantPivot $participant): void
-    {
-        event(new ParticipationCanceled($participant));
-    }
 
-    /**
-     * Undocumented function
-     *
-     * @param \SimpleEducation\Meeting\Models\Participant $participant
-     * @return void
-     */
-    public function participantJoining(ParticipantPivot $participant): void
-    {
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @param \SimpleEducation\Meeting\Models\Participant $participant
-     * @return void
-     */
-    public function participantJoined(ParticipantPivot $participant): void
-    {
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @param \SimpleEducation\Meeting\Models\Participant $participant
-     * @return void
-     */
-    public function participantLeaving(ParticipantPivot $participant): void
-    {
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @param \SimpleEducation\Meeting\Models\Participant $participant
-     * @return void
-     */
-    public function participantLeft(ParticipantPivot $participant): void
-    {
-    }
 }
