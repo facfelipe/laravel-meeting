@@ -1,8 +1,8 @@
 <?php
 
-namespace Nncodes\Meeting\Providers\Zoom\Sdk\Resources;
+namespace SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources;
 
-use Nncodes\Meeting\Providers\Zoom\Sdk\Support\Repository;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Support\Repository;
 
 /**
  * The recording meeting object.
@@ -73,7 +73,7 @@ class CloudRecording extends Resource
 
     /**
      * List of recording file.
-     * @var \Nncodes\Meeting\Providers\Zoom\Support\Repository
+     * @var \SimpleEducation\Meeting\Providers\Zoom\Support\Repository
      */
     public Repository $recordingFiles;
 

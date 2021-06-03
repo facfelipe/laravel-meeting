@@ -1,12 +1,13 @@
 <?php
 
-namespace Nncodes\Meeting\Providers\Zoom;
+namespace SimpleEducation\Meeting\Providers\Zoom;
 
-use Nncodes\Meeting\Contracts\Participant;
-use Nncodes\Meeting\Contracts\Provider;
-use Nncodes\Meeting\Models\Meeting;
+use SimpleEducation\Meeting\Contracts\Participant;
+use SimpleEducation\Meeting\Contracts\Provider;
+use SimpleEducation\Meeting\Models\Meeting;
+use SimpleEducation\Meeting\Providers\MeetProvider;
 
-class ZoomProvider implements Provider
+class ZoomProvider extends MeetProvider implements Provider
 {
     use Concerns\InteractsWithMeetings;
 
@@ -38,7 +39,7 @@ class ZoomProvider implements Provider
     /**
      * Undocumented function
      *
-     * @param \Nncodes\Meeting\Models\Meeting $meeting
+     * @param \SimpleEducation\Meeting\Models\Meeting $meeting
      * @return mixed
      */
     public function getPresenterAccess(Meeting $meeting)
@@ -51,8 +52,8 @@ class ZoomProvider implements Provider
     /**
      * Undocumented function
      *
-     * @param \Nncodes\Meeting\Models\Meeting $meeting
-     * @param \Nncodes\Meeting\Contracts\Participant $participant
+     * @param \SimpleEducation\Meeting\Models\Meeting $meeting
+     * @param \SimpleEducation\Meeting\Contracts\Participant $participant
      * @return mixed
      */
     public function getParticipantAccess(Meeting $meeting, Participant $participant)

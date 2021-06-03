@@ -1,6 +1,6 @@
 <?php
 
-namespace Nncodes\Meeting\Exceptions;
+namespace SimpleEducation\Meeting\Exceptions;
 
 class InvalidProvider extends \Exception
 {
@@ -39,7 +39,7 @@ class InvalidProvider extends \Exception
 
         $this->provider = $provider;
     }
-   
+
     /**
      * Get the not found provider name
      *

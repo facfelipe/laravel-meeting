@@ -1,6 +1,6 @@
 <?php
 
-namespace Nncodes\Meeting\Models;
+namespace SimpleEducation\Meeting\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -15,7 +15,7 @@ class Meeting extends Model
     use Traits\ManipulatesParticipants;
     use Traits\ProvidesMeetingAccessors;
     use Traits\ManipulatesMeeting;
-    
+
     /**
      * The attributes that are mass assignable.
      *

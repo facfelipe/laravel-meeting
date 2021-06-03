@@ -1,8 +1,8 @@
 <?php
 
-namespace Nncodes\Meeting\Providers\Zoom\Sdk\Resources;
+namespace SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources;
 
-use Nncodes\Meeting\Providers\Zoom\Sdk\Support\Repository;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Support\Repository;
 
 /**
  * Role
@@ -73,7 +73,7 @@ class Role extends Resource
      * List all the members that are assigned a specific role.
      *
      * @param array $query
-     * @return \Nncodes\Meeting\Providers\Zoom\Support\Repository
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Support\Repository
      */
     public function members(array $query = []): Repository
     {

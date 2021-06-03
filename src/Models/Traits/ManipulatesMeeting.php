@@ -1,14 +1,14 @@
 <?php
 
-namespace Nncodes\Meeting\Models\Traits;
+namespace SimpleEducation\Meeting\Models\Traits;
 
 use Carbon\Carbon;
-use Nncodes\Meeting\Contracts\Host;
-use Nncodes\Meeting\Contracts\Participant;
-use Nncodes\Meeting\Contracts\Presenter;
-use Nncodes\Meeting\Contracts\Scheduler;
-use Nncodes\Meeting\MeetingAdder;
-use Nncodes\Meeting\Models\Participant as ParticipantPivot;
+use SimpleEducation\Meeting\Contracts\Host;
+use SimpleEducation\Meeting\Contracts\Participant;
+use SimpleEducation\Meeting\Contracts\Presenter;
+use SimpleEducation\Meeting\Contracts\Scheduler;
+use SimpleEducation\Meeting\MeetingAdder;
+use SimpleEducation\Meeting\Models\Participant as ParticipantPivot;
 
 /**
  * Provides manipulation methods for meeting model
@@ -19,7 +19,7 @@ trait ManipulatesMeeting
     * Undocumented function
     *
     * @param string|null $provider
-    * @return \Nncodes\Meeting\MeetingAdder
+    * @return \SimpleEducation\Meeting\MeetingAdder
     */
     public static function schedule(?string $provider = null): MeetingAdder
     {
@@ -74,7 +74,7 @@ trait ManipulatesMeeting
     /**
      * Undocumented function
      *
-     * @param \Nncodes\Meeting\Contracts\Host $host
+     * @param \SimpleEducation\Meeting\Contracts\Host $host
      * @return self
      */
     public function updateHost(Host $host): self
@@ -87,7 +87,7 @@ trait ManipulatesMeeting
     /**
      * Undocumented function
      *
-     * @param \Nncodes\Meeting\Contracts\Presenter $presenter
+     * @param \SimpleEducation\Meeting\Contracts\Presenter $presenter
      * @return self
      */
     public function updatePresenter(Presenter $presenter): self
@@ -100,7 +100,7 @@ trait ManipulatesMeeting
     /**
      * Undocumented function
      *
-     * @param \Nncodes\Meeting\Contracts\Scheduler $scheduler
+     * @param \SimpleEducation\Meeting\Contracts\Scheduler $scheduler
      * @return self
      */
     public function updateScheduler(Scheduler $scheduler): self
@@ -183,7 +183,7 @@ trait ManipulatesMeeting
     /**
      * Undocumented function
      *
-     * @return \Nncodes\Meeting\Models\Participant|null
+     * @return \SimpleEducation\Meeting\Models\Participant|null
      */
     public function getNextParticipant(): ?ParticipantPivot
     {

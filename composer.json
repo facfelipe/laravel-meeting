@@ -1,5 +1,5 @@
 {
-    "name": "nncodes/laravel-meeting",
+    "name": "simpleeducation/laravel-meeting",
     "description": "Handle online meeting with Laravel",
     "keywords": [
         "nncodes",
@@ -28,13 +28,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Nncodes\\Meeting\\": "src",
-            "Nncodes\\Meeting\\Database\\Factories\\": "database/factories"
+            "SimpleEducation\\Meeting\\": "src",
+            "SimpleEducation\\Meeting\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Nncodes\\Meeting\\Tests\\": "tests"
+            "SimpleEducation\\Meeting\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -48,7 +48,7 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Nncodes\\Meeting\\MeetingServiceProvider"
+                "SimpleEducation\\Meeting\\MeetingServiceProvider"
             ]
         }
     },

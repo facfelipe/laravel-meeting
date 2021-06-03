@@ -1,10 +1,10 @@
 <?php
 
-namespace Nncodes\Meeting\Contracts;
+namespace SimpleEducation\Meeting\Contracts;
 
-use Nncodes\Meeting\MeetingAdder;
-use Nncodes\Meeting\Models\Meeting;
-use Nncodes\Meeting\Models\Participant as ParticipantPivot;
+use SimpleEducation\Meeting\MeetingAdder;
+use SimpleEducation\Meeting\Models\Meeting;
+use SimpleEducation\Meeting\Models\Participant as ParticipantPivot;
 
 interface Provider
 {
@@ -23,7 +23,7 @@ interface Provider
     public function started(Meeting $meeting): void;
 
     public function ending(Meeting $meeting): void;
-    
+
     public function ended(Meeting $meeting): void;
 
     public function canceling(Meeting $meeting): void;

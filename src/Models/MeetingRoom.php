@@ -1,11 +1,11 @@
 <?php
 
-namespace Nncodes\Meeting\Models;
+namespace SimpleEducation\Meeting\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Nncodes\Meeting\Concerns\HostsMeetings;
-use Nncodes\Meeting\Contracts\Host;
+use SimpleEducation\Meeting\Concerns\HostsMeetings;
+use SimpleEducation\Meeting\Contracts\Host;
 
 class MeetingRoom extends Model implements Host
 {
@@ -20,7 +20,7 @@ class MeetingRoom extends Model implements Host
     protected $casts = [
         'uuid' => 'string',
     ];
-    
+
     /**
      * The attributes that are mass assignable.
      *

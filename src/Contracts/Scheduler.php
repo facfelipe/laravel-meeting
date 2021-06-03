@@ -1,12 +1,12 @@
 <?php
 
-namespace Nncodes\Meeting\Contracts;
+namespace SimpleEducation\Meeting\Contracts;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use Nncodes\Meeting\MeetingAdder;
-use Nncodes\Meeting\Models\Meeting;
+use SimpleEducation\Meeting\MeetingAdder;
+use SimpleEducation\Meeting\Models\Meeting;
 
 interface Scheduler
 {
@@ -21,7 +21,7 @@ interface Scheduler
     * Undocumented function
     *
     * @param string|null $provider
-    * @return \Nncodes\Meeting\MeetingAdder
+    * @return \SimpleEducation\Meeting\MeetingAdder
     */
     public function scheduleMeeting(?string $provider = null): MeetingAdder;
 
@@ -31,7 +31,7 @@ interface Scheduler
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @param \Carbon\Carbon $start
      * @param \Carbon\Carbon $end
-     * @param \Nncodes\Meeting\Models\Meeting|null $except
+     * @param \SimpleEducation\Meeting\Models\Meeting|null $except
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeAvailableBetween(Builder $query, Carbon $start, Carbon $end, ?Meeting $except = null): Builder;
@@ -42,7 +42,7 @@ interface Scheduler
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @param \Carbon\Carbon $start
      * @param \Carbon\Carbon $end
-     * @param \Nncodes\Meeting\Models\Meeting|null $except
+     * @param \SimpleEducation\Meeting\Models\Meeting|null $except
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeBusyBetween(Builder $query, Carbon $start, Carbon $end, ?Meeting $except = null): Builder;
@@ -52,7 +52,7 @@ interface Scheduler
     *
     * @param \Carbon\Carbon $start
     * @param \Carbon\Carbon $end
-    * @param \Nncodes\Meeting\Models\Meeting|null $except
+    * @param \SimpleEducation\Meeting\Models\Meeting|null $except
     * @return bool
     */
     public function isAvailableBetween(Carbon $start, Carbon $end, ?Meeting $except = null): bool;
@@ -62,7 +62,7 @@ interface Scheduler
      *
      * @param \Carbon\Carbon $start
      * @param \Carbon\Carbon $end
-     * @param \Nncodes\Meeting\Models\Meeting|null $except
+     * @param \SimpleEducation\Meeting\Models\Meeting|null $except
      * @return bool
      */
     public function isBusyBetween(Carbon $start, Carbon $end, ?Meeting $except = null): bool;

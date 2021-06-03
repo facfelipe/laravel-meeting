@@ -1,18 +1,18 @@
 <?php
 
-namespace Nncodes\Meeting\Providers\Zoom\Concerns;
+namespace SimpleEducation\Meeting\Providers\Zoom\Concerns;
 
-use Nncodes\Meeting\Contracts\Participant;
-use Nncodes\Meeting\Events\MeetingCanceled;
-use Nncodes\Meeting\Events\MeetingScheduled;
-use Nncodes\Meeting\Events\MeetingUpdated;
-use Nncodes\Meeting\Events\ParticipantAdded;
-use Nncodes\Meeting\Events\ParticipationCanceled;
-use Nncodes\Meeting\Exceptions\NoZoomRoomAvailable;
-use Nncodes\Meeting\MeetingAdder;
-use Nncodes\Meeting\Models\Meeting;
-use Nncodes\Meeting\Models\MeetingRoom;
-use Nncodes\Meeting\Models\Participant as ParticipantPivot;
+use SimpleEducation\Meeting\Contracts\Participant;
+use SimpleEducation\Meeting\Events\MeetingCanceled;
+use SimpleEducation\Meeting\Events\MeetingScheduled;
+use SimpleEducation\Meeting\Events\MeetingUpdated;
+use SimpleEducation\Meeting\Events\ParticipantAdded;
+use SimpleEducation\Meeting\Events\ParticipationCanceled;
+use SimpleEducation\Meeting\Exceptions\NoZoomRoomAvailable;
+use SimpleEducation\Meeting\MeetingAdder;
+use SimpleEducation\Meeting\Models\Meeting;
+use SimpleEducation\Meeting\Models\MeetingRoom;
+use SimpleEducation\Meeting\Models\Participant as ParticipantPivot;
 
 trait InteractsWithMeetings
 {
@@ -20,24 +20,23 @@ trait InteractsWithMeetings
     use ProvidesSettings;
 
     /**
-     * Undocumented function
      *
-     * @param \Nncodes\Meeting\MeetingAdder $meeting
-     * @throws  \Nncodes\Meeting\Exceptions\NoZoomRoomAvailable
+     * @param \SimpleEducation\Meeting\MeetingAdder $meeting
      * @return void
+     * @throws  \SimpleEducation\Meeting\Exceptions\NoZoomRoomAvailable
      */
     public function scheduling(MeetingAdder $meeting): void
     {
         if ($this->shareRooms()) {
             $endTime = (clone $meeting->startTime)->addMinutes($meeting->duration);
-            if (! $host = MeetingRoom::findAvailable($meeting->startTime, $endTime)) {
+            if (!$host = MeetingRoom::findAvailable($meeting->startTime, $endTime)) {
                 throw NoZoomRoomAvailable::create($meeting);
             }
             $meeting->hostedBy($host);
         }
 
         $zoomMeeting = $this->createZoomMeeting(
-            $meeting->host->uuid,
+            $meeting->host->id,
             $meeting->topic,
             $meeting->startTime,
             $meeting->duration
@@ -49,9 +48,8 @@ trait InteractsWithMeetings
     }
 
     /**
-     * Undocumented function
      *
-     * @param \Nncodes\Meeting\Models\Meeting $meeting
+     * @param \SimpleEducation\Meeting\Models\Meeting $meeting
      * @return void
      */
     public function scheduled(Meeting $meeting): void
@@ -60,9 +58,8 @@ trait InteractsWithMeetings
     }
 
     /**
-     * Undocumented function
      *
-     * @param \Nncodes\Meeting\Models\Meeting $meeting
+     * @param \SimpleEducation\Meeting\Models\Meeting $meeting
      * @return void
      */
     public function updating(Meeting $meeting): void
@@ -71,7 +68,7 @@ trait InteractsWithMeetings
             if ($meeting->isDirty('start_time')) {
                 if ($this->shareRooms() && $meeting->host->isBusyBetween($meeting->start_time, $meeting->end_time, $meeting)) {
                     //Search for another host if the current is not available for the new start_time and duration
-                    if (! $host = MeetingRoom::findAvailable($meeting->start_time, $meeting->end_time)) {
+                    if (!$host = MeetingRoom::findAvailable($meeting->start_time, $meeting->end_time)) {
                         throw NoZoomRoomAvailable::createFromModel($meeting);
                     }
                     $meeting->updateHost($host);
@@ -89,7 +86,7 @@ trait InteractsWithMeetings
                     $meeting->start_time,
                     $meeting->duration
                 );
-                
+
                 //Update the zoom id referente and register the participants in the new zoom meeting
                 $meeting->setMeta('zoom_id')->asInteger($zoomMeeting->id);
 
@@ -114,60 +111,8 @@ trait InteractsWithMeetings
     }
 
     /**
-     * Undocumented function
      *
-     * @param \Nncodes\Meeting\Models\Meeting $meeting
-     * @return void
-     */
-    public function updated(Meeting $meeting): void
-    {
-        event(new MeetingUpdated($meeting));
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @param \Nncodes\Meeting\Models\Meeting $meeting
-     * @return void
-     */
-    public function starting(Meeting $meeting): void
-    {
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @param \Nncodes\Meeting\Models\Meeting $meeting
-     * @return void
-     */
-    public function started(Meeting $meeting): void
-    {
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @param \Nncodes\Meeting\Models\Meeting $meeting
-     * @return void
-     */
-    public function ending(Meeting $meeting): void
-    {
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @param \Nncodes\Meeting\Models\Meeting $meeting
-     * @return void
-     */
-    public function ended(Meeting $meeting): void
-    {
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @param \Nncodes\Meeting\Models\Meeting $meeting
+     * @param \SimpleEducation\Meeting\Models\Meeting $meeting
      * @return void
      */
     public function canceling(Meeting $meeting): void
@@ -176,21 +121,9 @@ trait InteractsWithMeetings
     }
 
     /**
-     * Undocumented function
      *
-     * @param \Nncodes\Meeting\Models\Meeting $meeting
-     * @return void
-     */
-    public function canceled(Meeting $meeting): void
-    {
-        event(new MeetingCanceled($meeting));
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @param \Nncodes\Meeting\Contracts\Participant $participant
-     * @param \Nncodes\Meeting\Models\Meeting $meeting
+     * @param \SimpleEducation\Meeting\Contracts\Participant $participant
+     * @param \SimpleEducation\Meeting\Models\Meeting $meeting
      * @param string $uuid
      * @return void
      */
@@ -206,9 +139,8 @@ trait InteractsWithMeetings
     }
 
     /**
-     * Undocumented function
      *
-     * @param \Nncodes\Meeting\Models\Participant $participant
+     * @param \SimpleEducation\Meeting\Models\Participant $participant
      * @return void
      */
     public function participantAdded(ParticipantPivot $participant): void
@@ -217,7 +149,7 @@ trait InteractsWithMeetings
             $participant->setMeta('registrantId')->asString($metaUuid->value->registrantId);
             $participant->setMeta('joinUrl')->asString($metaUuid->value->joinUrl);
             $participant->setMeta('email')->asString($participant->participant->getParticipantEmailAddress());
-            
+
             $metaUuid->delete();
         }
 
@@ -225,9 +157,8 @@ trait InteractsWithMeetings
     }
 
     /**
-     * Undocumented function
      *
-     * @param \Nncodes\Meeting\Models\Participant $participant
+     * @param \SimpleEducation\Meeting\Models\Participant $participant
      * @return void
      */
     public function participationCanceling(ParticipantPivot $participant): void
@@ -245,54 +176,5 @@ trait InteractsWithMeetings
         $participant->clearMetas();
     }
 
-    /**
-     * Undocumented function
-     *
-     * @param \Nncodes\Meeting\Models\Participant $participant
-     * @return void
-     */
-    public function participationCanceled(ParticipantPivot $participant): void
-    {
-        event(new ParticipationCanceled($participant));
-    }
 
-    /**
-     * Undocumented function
-     *
-     * @param \Nncodes\Meeting\Models\Participant $participant
-     * @return void
-     */
-    public function participantJoining(ParticipantPivot $participant): void
-    {
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @param \Nncodes\Meeting\Models\Participant $participant
-     * @return void
-     */
-    public function participantJoined(ParticipantPivot $participant): void
-    {
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @param \Nncodes\Meeting\Models\Participant $participant
-     * @return void
-     */
-    public function participantLeaving(ParticipantPivot $participant): void
-    {
-    }
-
-    /**
-     * Undocumented function
-     *
-     * @param \Nncodes\Meeting\Models\Participant $participant
-     * @return void
-     */
-    public function participantLeft(ParticipantPivot $participant): void
-    {
-    }
 }

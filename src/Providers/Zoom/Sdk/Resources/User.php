@@ -1,8 +1,8 @@
 <?php
 
-namespace Nncodes\Meeting\Providers\Zoom\Sdk\Resources;
+namespace SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources;
 
-use Nncodes\Meeting\Providers\Zoom\Sdk\Support\Repository;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Support\Repository;
 
 /**
  * The user object represents a specific user on Zoom.
@@ -268,7 +268,7 @@ class User extends Resource
      * Get the collection of user's meetings
      *
      * @param array $query
-     * @return \Nncodes\Meeting\Providers\Zoom\Support\Repository
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Support\Repository
      */
     public function meetings(array $query = []): Repository
     {
@@ -289,7 +289,7 @@ class User extends Resource
      * Get the collection of recordings of a user
      *
      * @param array $query
-     * @return \Nncodes\Meeting\Providers\Zoom\Support\Repository
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Support\Repository
      */
     public function recordings(array $query = []): Repository
     {

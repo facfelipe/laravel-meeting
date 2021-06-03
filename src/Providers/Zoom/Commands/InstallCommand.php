@@ -1,6 +1,6 @@
 <?php
 
-namespace Nncodes\Meeting\Providers\Zoom\Commands;
+namespace SimpleEducation\Meeting\Providers\Zoom\Commands;
 
 use Illuminate\Console\Command;
 
@@ -28,18 +28,18 @@ class InstallCommand extends Command
     public function handle()
     {
         $this->call('vendor:publish', [
-            '--provider' => 'Nncodes\Meeting\MeetingServiceProvider',
+            '--provider' => 'SimpleEducation\Meeting\MeetingServiceProvider',
             '--tag' => 'migrations',
         ]);
 
         $this->call('vendor:publish', [
-            '--provider' => 'Nncodes\MetaAttributes\MetaAttributesServiceProvider',
+            '--provider' => 'SimpleEducation\MetaAttributes\MetaAttributesServiceProvider',
             '--tag' => 'migrations',
         ]);
 
         if ($this->option('config')) {
             $this->call('vendor:publish', [
-                '--provider' => 'Nncodes\Meeting\MeetingServiceProvider',
+                '--provider' => 'SimpleEducation\Meeting\MeetingServiceProvider',
                 '--tag' => 'config',
             ]);
         }

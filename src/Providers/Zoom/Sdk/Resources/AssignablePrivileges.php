@@ -1,6 +1,6 @@
 <?php
 
-namespace Nncodes\Meeting\Providers\Zoom\Sdk\Resources;
+namespace SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources;
 
 class AssignablePrivileges
 {

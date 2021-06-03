@@ -1,12 +1,12 @@
 <?php
 
-namespace Nncodes\Meeting\Providers\Zoom\Sdk\Actions;
+namespace SimpleEducation\Meeting\Providers\Zoom\Sdk\Actions;
 
-use Nncodes\Meeting\Providers\Zoom\Sdk\Resources\CloudRecording;
-use Nncodes\Meeting\Providers\Zoom\Sdk\Resources\Meeting;
-use Nncodes\Meeting\Providers\Zoom\Sdk\Resources\MeetingParticipant;
-use Nncodes\Meeting\Providers\Zoom\Sdk\Resources\PastMeeting;
-use Nncodes\Meeting\Providers\Zoom\Sdk\Support\Repository;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources\CloudRecording;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources\Meeting;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources\MeetingParticipant;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources\PastMeeting;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Support\Repository;
 
 trait ManagesMeetings
 {
@@ -16,7 +16,7 @@ trait ManagesMeetings
      * @param int $meetingId The meeting ID
      * @param array $data
      * @param array $query
-     * @return \Nncodes\Meeting\Providers\Zoom\Sdk\Resources\MeetingParticipant
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources\MeetingParticipant
      */
     public function addMeetingParticipant(int $meetingId, array $data, array $query = []): MeetingParticipant
     {
@@ -52,7 +52,7 @@ trait ManagesMeetings
      *
      * @param int $meetingId The meeting ID
      * @param array $query
-     * @return \Nncodes\Meeting\Providers\Zoom\Sdk\Resources\Meeting
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources\Meeting
      */
     public function meeting(int $meetingId, array $query = []): Meeting
     {
@@ -64,7 +64,7 @@ trait ManagesMeetings
      *
      * @param int $meetingId The meeting ID
      * @param array $query
-     * @return \Nncodes\Meeting\Providers\Zoom\Sdk\Support\Repository
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Sdk\Support\Repository
      */
     public function meetingParticipants(int $meetingId, array $query = []): Repository
     {
@@ -81,7 +81,7 @@ trait ManagesMeetings
      * 	Get all the  from a meeting or a Webinar.
      *
      * @param int $meetingId The meeting ID
-     * @return \Nncodes\Meeting\Providers\Zoom\Sdk\Resources\CloudRecording
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources\CloudRecording
      */
     public function meetingRecordings(int $meetingId): CloudRecording
     {
@@ -92,7 +92,7 @@ trait ManagesMeetings
      * * Get details on a past meeting.
      *
      * @param int $meetingId The meeting ID
-     * @return \Nncodes\Meeting\Providers\Zoom\Sdk\Resources\PastMeeting
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources\PastMeeting
      */
     public function pastMeeting(int $meetingId): PastMeeting
     {

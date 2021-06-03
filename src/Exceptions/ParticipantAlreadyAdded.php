@@ -1,23 +1,23 @@
 <?php
 
-namespace Nncodes\Meeting\Exceptions;
+namespace SimpleEducation\Meeting\Exceptions;
 
-use Nncodes\Meeting\Contracts\Participant;
-use Nncodes\Meeting\Models\Meeting;
+use SimpleEducation\Meeting\Contracts\Participant;
+use SimpleEducation\Meeting\Models\Meeting;
 
 class ParticipantAlreadyAdded extends \Exception
 {
 
     /**
-     * @var \Nncodes\Meeting\Contracts\Participant
+     * @var \SimpleEducation\Meeting\Contracts\Participant
      */
     protected Participant $participant;
 
     /**
      * Provides a static method to create a new instance of ParticipantAlreadyAdded Exception
      *
-     * @param \Nncodes\Meeting\Contracts\Participant $participant
-     * @param \Nncodes\Meeting\Models\Meeting $meeting
+     * @param \SimpleEducation\Meeting\Contracts\Participant $participant
+     * @param \SimpleEducation\Meeting\Models\Meeting $meeting
      * @return self
      */
     public static function create(Participant $participant, Meeting $meeting): self
@@ -33,8 +33,8 @@ class ParticipantAlreadyAdded extends \Exception
      * Create a new instance of ParticipantAlreadyAdded exception
      *
      * @param string $message
-     * @param \Nncodes\Meeting\Contracts\Participant $participant
-     * @param \Nncodes\Meeting\Models\Meeting $meeting
+     * @param \SimpleEducation\Meeting\Contracts\Participant $participant
+     * @param \SimpleEducation\Meeting\Models\Meeting $meeting
      */
     public function __construct(string $message, Participant $participant, Meeting $meeting)
     {
@@ -63,7 +63,7 @@ class ParticipantAlreadyAdded extends \Exception
     /**
      * Get the already registered participant
      *
-     * @return \Nncodes\Meeting\Contracts\Participant
+     * @return \SimpleEducation\Meeting\Contracts\Participant
      */
     public function getParticipant(): Participant
     {

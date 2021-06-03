@@ -1,10 +1,10 @@
 <?php
 
-namespace Nncodes\Meeting\Providers\Zoom\Sdk\Actions;
+namespace SimpleEducation\Meeting\Providers\Zoom\Sdk\Actions;
 
-use Nncodes\Meeting\Providers\Zoom\Sdk\Resources\Account;
-use Nncodes\Meeting\Providers\Zoom\Sdk\Resources\CloudRecording;
-use Nncodes\Meeting\Providers\Zoom\Sdk\Support\Repository;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources\Account;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources\CloudRecording;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Support\Repository;
 
 trait ManagesAccounts
 {
@@ -25,7 +25,7 @@ trait ManagesAccounts
      *
      * @param string $accountId The account ID.
      * @param array $query
-     * @return \Nncodes\Meeting\Providers\Zoom\Sdk\Support\Repository
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Sdk\Support\Repository
      */
     public function accountMeetingRecordings(string $accountId, array $query = []): Repository
     {

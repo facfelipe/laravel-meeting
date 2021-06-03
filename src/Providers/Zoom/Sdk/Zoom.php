@@ -1,6 +1,6 @@
 <?php
 
-namespace Nncodes\Meeting\Providers\Zoom\Sdk;
+namespace SimpleEducation\Meeting\Providers\Zoom\Sdk;
 
 use Closure;
 
@@ -47,7 +47,7 @@ class Zoom
      * @param array $collection
      * @param array $class
      * @param \Closure|null $paginator
-     * @return \Nncodes\Meeting\Providers\Zoom\Sdk\Support\Repository
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Sdk\Support\Repository
      */
     protected function transformCollection(array $collection, array $class, ?Closure $paginator = null): Support\Repository
     {
@@ -72,7 +72,7 @@ class Zoom
         if ($paginator && is_callable($paginator)) {
             $repository->paginator($paginator);
         }
-        
+
         return $repository;
     }
 }

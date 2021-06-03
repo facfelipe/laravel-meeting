@@ -1,10 +1,10 @@
 <?php
 
-namespace Nncodes\Meeting\Models\Traits;
+namespace SimpleEducation\Meeting\Models\Traits;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
-use Nncodes\Meeting\Models\Meeting;
+use SimpleEducation\Meeting\Models\Meeting;
 
 /**
  * Provides availability verification methods to the meeting instance
@@ -17,7 +17,7 @@ trait VerifiesAvailability
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @param \Carbon\Carbon $start
      * @param \Carbon\Carbon $end
-     * @param \Nncodes\Meeting\Models\Meeting|null $except
+     * @param \SimpleEducation\Meeting\Models\Meeting|null $except
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeAvailableBetween(Builder $query, Carbon $start, Carbon $end, ?Meeting $except = null): Builder
@@ -44,7 +44,7 @@ trait VerifiesAvailability
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @param \Carbon\Carbon $start
      * @param \Carbon\Carbon $end
-     * @param \Nncodes\Meeting\Models\Meeting|null $except
+     * @param \SimpleEducation\Meeting\Models\Meeting|null $except
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeBusyBetween(Builder $query, Carbon $start, Carbon $end, ?Meeting $except = null): Builder
@@ -70,7 +70,7 @@ trait VerifiesAvailability
      *
      * @param \Carbon\Carbon $start
      * @param \Carbon\Carbon $end
-     * @param \Nncodes\Meeting\Models\Meeting|null $except
+     * @param \SimpleEducation\Meeting\Models\Meeting|null $except
      * @return bool
      */
     public function isAvailableBetween(Carbon $start, Carbon $end, ?Meeting $except = null): bool
@@ -83,7 +83,7 @@ trait VerifiesAvailability
      *
      * @param \Carbon\Carbon $start
      * @param \Carbon\Carbon $end
-     * @param \Nncodes\Meeting\Models\Meeting|null $except
+     * @param \SimpleEducation\Meeting\Models\Meeting|null $except
      * @return bool
      */
     public function isBusyBetween(Carbon $start, Carbon $end, ?Meeting $except = null): bool

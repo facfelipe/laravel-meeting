@@ -1,8 +1,8 @@
 <?php
 
-namespace Nncodes\Meeting\Providers\Zoom\Sdk\Resources;
+namespace SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources;
 
-use Nncodes\Meeting\Providers\Zoom\Sdk\Support\Repository;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Support\Repository;
 
 /**
  * Group
@@ -69,7 +69,7 @@ class Group extends Resource
      * List the members of the group.
      *
      * @param array $query
-     * @return \Nncodes\Meeting\Providers\Zoom\Support\Repository
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Support\Repository
      */
     public function members(array $query = []): Repository
     {

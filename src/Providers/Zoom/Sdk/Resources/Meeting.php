@@ -1,8 +1,8 @@
 <?php
 
-namespace Nncodes\Meeting\Providers\Zoom\Sdk\Resources;
+namespace SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources;
 
-use Nncodes\Meeting\Providers\Zoom\Sdk\Support\Repository;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Support\Repository;
 
 /**
  * Meeting object.
@@ -191,7 +191,7 @@ class Meeting extends Resource
      * Get the list of users that have registered for a meeting.
      *
      * @param array $query
-     * @return \Nncodes\Meeting\Providers\Zoom\Support\Repository
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Support\Repository
      */
     public function participants(array $query = []): Repository
     {

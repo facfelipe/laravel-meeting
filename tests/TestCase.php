@@ -1,9 +1,9 @@
 <?php
 
-namespace Nncodes\Meeting\Tests;
+namespace SimpleEducation\Meeting\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
-use Nncodes\Meeting\MeetingServiceProvider;
+use SimpleEducation\Meeting\MeetingServiceProvider;
 use Orchestra\Testbench\TestCase as Orchestra;
 
 class TestCase extends Orchestra
@@ -13,7 +13,7 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Nncodes\\Meeting\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'SimpleEducation\\Meeting\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 

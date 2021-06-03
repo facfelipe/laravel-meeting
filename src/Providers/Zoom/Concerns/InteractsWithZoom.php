@@ -1,9 +1,9 @@
 <?php
 
-namespace Nncodes\Meeting\Providers\Zoom\Concerns;
+namespace SimpleEducation\Meeting\Providers\Zoom\Concerns;
 
 use Carbon\Carbon;
-use Nncodes\Meeting\Providers\Zoom\Sdk\Resources\Meeting;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources\Meeting;
 
 trait InteractsWithZoom
 {
@@ -14,7 +14,7 @@ trait InteractsWithZoom
      * @param string $topic
      * @param \Carbon\Carbon $startTime
      * @param int $duration
-     * @return \Nncodes\Meeting\Providers\Zoom\Sdk\Resources\Meeting
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources\Meeting
      */
     public function createZoomMeeting(string $userId, string $topic, Carbon $startTime, int $duration): Meeting
     {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Nncodes\Meeting\Providers\Zoom\Sdk\Resources;
+namespace SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources;
 
-use Nncodes\Meeting\Providers\Zoom\Sdk\Support\Repository;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Support\Repository;
 
 /**
  * PastMeeting
@@ -95,7 +95,7 @@ class PastMeeting extends Resource
      * Retrieve information on participants from a past meeting.
      *
      * @param array $query
-     * @return \Nncodes\Meeting\Providers\Zoom\Support\Repository
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Support\Repository
      */
     public function participants(array $query = []): Repository
     {

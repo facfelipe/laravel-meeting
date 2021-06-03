@@ -1,12 +1,12 @@
 <?php
 
-namespace Nncodes\Meeting\Concerns;
+namespace SimpleEducation\Meeting\Concerns;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
-use Nncodes\Meeting\Contracts\Host;
-use Nncodes\Meeting\Models\Meeting;
-use Nncodes\Meeting\Models\Traits\VerifiesAvailability;
+use SimpleEducation\Meeting\Contracts\Host;
+use SimpleEducation\Meeting\Models\Meeting;
+use SimpleEducation\Meeting\Models\Traits\VerifiesAvailability;
 
 /**
  * Provides default implementation of Host contract.
@@ -14,7 +14,7 @@ use Nncodes\Meeting\Models\Traits\VerifiesAvailability;
 trait HostsMeetings
 {
     use VerifiesAvailability;
-    
+
     /**
      * Get the MorphMany Relation with the Meeting Model
      *
@@ -30,8 +30,8 @@ trait HostsMeetings
      *
      * @param \Carbon\Carbon $start
      * @param \Carbon\Carbon $end
-     * @param \Nncodes\Meeting\Models\Meeting|null $except
-     * @return \Nncodes\Meeting\Contracts\Host|null
+     * @param \SimpleEducation\Meeting\Models\Meeting|null $except
+     * @return \SimpleEducation\Meeting\Contracts\Host|null
      */
     public static function findAvailable(Carbon $start, Carbon $end, ?Meeting $except = null): ?Host
     {

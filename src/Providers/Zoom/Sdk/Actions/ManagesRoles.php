@@ -1,10 +1,10 @@
 <?php
 
-namespace Nncodes\Meeting\Providers\Zoom\Sdk\Actions;
+namespace SimpleEducation\Meeting\Providers\Zoom\Sdk\Actions;
 
-use Nncodes\Meeting\Providers\Zoom\Sdk\Resources\Role;
-use Nncodes\Meeting\Providers\Zoom\Sdk\Resources\User;
-use Nncodes\Meeting\Providers\Zoom\Sdk\Support\Repository;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources\Role;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources\User;
+use SimpleEducation\Meeting\Providers\Zoom\Sdk\Support\Repository;
 
 trait ManagesRoles
 {
@@ -24,7 +24,7 @@ trait ManagesRoles
      * Create a new role
      *
      * @param array $data
-     * @return \Nncodes\Meeting\Providers\Zoom\Sdk\Resources\Role
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources\Role
      */
     public function createRole(array $data): Role
     {
@@ -46,7 +46,7 @@ trait ManagesRoles
      * Get a instance of role
      *
      * @param string $roleId
-     * @return \Nncodes\Meeting\Providers\Zoom\Sdk\Resources\Role
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Sdk\Resources\Role
      */
     public function role(string $roleId): Role
     {
@@ -58,7 +58,7 @@ trait ManagesRoles
      *
      * @param string $roleId
      * @param array $query
-     * @return \Nncodes\Meeting\Providers\Zoom\Sdk\Support\Repository
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Sdk\Support\Repository
      */
     public function roleMembers(string $roleId, array $query = []): Repository
     {
@@ -74,7 +74,7 @@ trait ManagesRoles
     /**
      * Get the collection of roles.
      *
-     * @return \Nncodes\Meeting\Providers\Zoom\Sdk\Support\Repository
+     * @return \SimpleEducation\Meeting\Providers\Zoom\Sdk\Support\Repository
      */
     public function roles(): Repository
     {

@@ -1,14 +1,14 @@
 <?php
 
-namespace Nncodes\Meeting\Models\Traits;
+namespace SimpleEducation\Meeting\Models\Traits;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\Facades\DB;
-use Nncodes\Meeting\Contracts\Host;
-use Nncodes\Meeting\Contracts\Participant;
-use Nncodes\Meeting\Contracts\Presenter;
-use Nncodes\Meeting\Contracts\Scheduler;
+use SimpleEducation\Meeting\Contracts\Host;
+use SimpleEducation\Meeting\Contracts\Participant;
+use SimpleEducation\Meeting\Contracts\Presenter;
+use SimpleEducation\Meeting\Contracts\Scheduler;
 
 /**
  * Provides scoped methods to query a meeting
@@ -43,7 +43,7 @@ trait QueriesMeeting
      * Scope a query to filter by scheduler
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param \Nncodes\Meeting\Contracts\Scheduler $scheduler
+     * @param \SimpleEducation\Meeting\Contracts\Scheduler $scheduler
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeScheduler(Builder $query, Scheduler $scheduler): Builder
@@ -59,7 +59,7 @@ trait QueriesMeeting
      * Scope a query to filter by presenter
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param \Nncodes\Meeting\Contracts\Presenter $presenter
+     * @param \SimpleEducation\Meeting\Contracts\Presenter $presenter
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopePresenter(Builder $query, Presenter $presenter): Builder
@@ -75,7 +75,7 @@ trait QueriesMeeting
      * Scope a query to filter by host
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param \Nncodes\Meeting\Contracts\Host $host
+     * @param \SimpleEducation\Meeting\Contracts\Host $host
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeHost(Builder $query, Host $host): Builder
@@ -91,7 +91,7 @@ trait QueriesMeeting
      * Scope a query to filter by participant
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
-     * @param \Nncodes\Meeting\Contracts\Participant $participant
+     * @param \SimpleEducation\Meeting\Contracts\Participant $participant
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeParticipant(Builder $query, Participant $participant): Builder
@@ -165,7 +165,7 @@ trait QueriesMeeting
      *
      * @param \Illuminate\Database\Eloquent\Builder $query
      * @param string $provider
-     * @throws \Nncodes\Meeting\Exceptions\InvalidProvider
+     * @throws \SimpleEducation\Meeting\Exceptions\InvalidProvider
      * @return \Illuminate\Database\Eloquent\Builder
      */
     public function scopeProvider(Builder $query, string $provider): Builder
@@ -174,7 +174,7 @@ trait QueriesMeeting
             return $query->where($this->getTable() . '.provider', $provider);
         }
 
-        throw \Nncodes\Meeting\Exceptions\InvalidProvider::create($provider);
+        throw \SimpleEducation\Meeting\Exceptions\InvalidProvider::create($provider);
     }
 
     /**
