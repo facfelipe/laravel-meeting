@@ -34,8 +34,9 @@ trait InteractsWithMeetings
             }
             $meeting->hostedBy($host);
         }
+
         $zoomMeeting = $this->createZoomMeeting(
-            $meeting->host->uuid,
+            $meeting->host->id,
             $meeting->topic,
             $meeting->startTime,
             $meeting->duration
